@@ -6,7 +6,7 @@ interface Event {
   title: string;
   location: string;
   description: string;
-  type: 'event' | 'workshop';
+  type: 'highlight' | 'experience';
 }
 
 @Component({
@@ -18,32 +18,46 @@ interface Event {
 export class Events {
   events: Event[] = [
     {
-      date: '15 de Junho',
-      title: 'Workshop de Hip Hop',
-      location: 'Estúdio Centro',
-      description: 'Aprenda as bases do hip hop com nossos instrutores',
-      type: 'workshop',
+      date: '2018',
+      title: 'Animextreme',
+      location: 'Porto Alegre, RS',
+      description: 'Nossa primeira apresentação oficial, marcada por energia e conexão com o público K-pop.',
+      type: 'highlight',
     },
     {
-      date: '22 de Junho',
-      title: 'Apresentação Festival',
-      location: 'Teatro Municipal',
-      description: 'Apresentação especial no festival de dança da cidade',
-      type: 'event',
+      date: '2019',
+      title: 'Dreamfest I',
+      location: 'Porto Alegre, RS',
+      description: '1º lugar com “Shooting Stars”, consolidando nossa presença nas competições.',
+      type: 'highlight',
     },
     {
-      date: '30 de Junho',
-      title: 'Workshop de Contemporâneo',
-      location: 'Estúdio Centro',
-      description: 'Explore novos movimentos da dança contemporânea',
-      type: 'workshop',
+      date: '2019',
+      title: 'Union Contest',
+      location: 'Porto Alegre, RS',
+      description: '1º lugar com “Sticker”, reforçando nossa consistência técnica.',
+      type: 'highlight',
     },
     {
-      date: '10 de Julho',
-      title: 'Competição Regional',
-      location: 'Arena Esportiva',
-      description: 'Competição com grupos de toda a região',
-      type: 'event',
+      date: '2019',
+      title: 'Dreamfest II',
+      location: 'Porto Alegre, RS',
+      description: '2º lugar com “Love Me Right”, mantendo a liderança nas principais competições.',
+      type: 'highlight',
+    },
+    {
+      date: '2024',
+      title: 'Hyelin (EXID)',
+      location: 'Porto Alegre, RS',
+      description: 'Atuamos como backdancers oficiais, uma experiência decisiva e inspiradora.',
+      type: 'experience',
+    },
+    {
+      date: '2025',
+      title: 'FIH2 Curitiba',
+      location: 'Curitiba, PR',
+      description: 'Primeira competição interestadual como grupo independente do RS, com palco profissional e aprendizado marcante.',
+      type: 'experience',
     },
   ];
 }

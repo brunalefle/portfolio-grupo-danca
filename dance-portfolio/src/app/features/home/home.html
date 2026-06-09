@@ -1,5 +1,4 @@
-<section class="relative w-full h-screen overflow-hidden">
-  <!-- Vídeo de fundo -->
+<section class="relative w-full min-h-screen overflow-hidden">
   <video
     autoplay
     muted
@@ -9,20 +8,50 @@
     <source src="assets/videos/intro.mp4" type="video/mp4" />
   </video>
 
-  <!-- Overlay escuro -->
-  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="absolute inset-0 bg-black/60"></div>
 
-  <!-- Conteúdo -->
-  <div class="relative z-10 flex items-center justify-center h-full">
-    <div class="text-center text-white">
-      <h1 class="text-6xl font-bold mb-6">Grupo de Dança</h1>
-      <p class="text-2xl mb-8 font-light">Movimento, Paixão e Arte</p>
-      <p-button
-        label="Conheça o Grupo"
-        severity="secondary"
-        size="large"
-        class="p-button-rounded"
-      ></p-button>
+  <div class="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center text-white">
+    <div class="max-w-4xl">
+      <p class="uppercase tracking-[0.4em] text-sm text-orange-red mb-6">Grupo cover K-pop do Rio Grande do Sul</p>
+      <h1 class="section-title font-bold leading-tight mb-6">
+        Desde 2017 levando o K-pop do Rio Grande do Sul aos maiores palcos.
+      </h1>
+      <p class="text-xl sm:text-2xl subtitle-soft mb-10 max-w-3xl mx-auto">
+        Grupo cover premiado, referência em performance, sincronia e técnica,
+        com atuação em competições, eventos e projetos especiais.
+      </p>
+
+      <div class="flex flex-col sm:flex-row sm:justify-center gap-4">
+        <a href="#about" class="hero-button">
+          Conheça nossa história
+        </a>
+        <a href="#conquistas" class="hero-button bg-white text-slate-950 hover:opacity-95">
+          Ver conquistas
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 w-full max-w-6xl">
+      <div class="surface-card border border-white/10 p-6 rounded-3xl shadow-2xl">
+        <p class="text-4xl mb-4">🏆</p>
+        <h3 class="font-bold text-xl mb-2">Maior número de títulos no RS</h3>
+        <p class="text-slate-300">Competências reconhecidas nas principais competições do estado.</p>
+      </div>
+      <div class="surface-card border border-white/10 p-6 rounded-3xl shadow-2xl">
+        <p class="text-4xl mb-4">🎤</p>
+        <h3 class="font-bold text-xl mb-2">Backdancers oficiais da Hyelin (EXID)</h3>
+        <p class="text-slate-300">Experiência profissional em palco com artistas internacionais.</p>
+      </div>
+      <div class="surface-card border border-white/10 p-6 rounded-3xl shadow-2xl">
+        <p class="text-4xl mb-4">🌎</p>
+        <h3 class="font-bold text-xl mb-2">Experiência interestadual</h3>
+        <p class="text-slate-300">Participações em competições fora do Rio Grande do Sul.</p>
+      </div>
+      <div class="surface-card border border-white/10 p-6 rounded-3xl shadow-2xl">
+        <p class="text-4xl mb-4">❤️</p>
+        <h3 class="font-bold text-xl mb-2">Eventos beneficentes</h3>
+        <p class="text-slate-300">Levar arte e solidariedade para o público é uma missão constante.</p>
+      </div>
     </div>
   </div>
 </section>

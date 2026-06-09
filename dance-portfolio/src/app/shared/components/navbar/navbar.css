@@ -1,0 +1,17 @@
+.navbar {
+  background: rgba(8, 15, 32, 0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.navbar a {
+  color: #e2e8f0;
+}
+
+.navbar a:hover {
+  color: #38bdf8;
+}
+
+.logo-light {
+  filter: invert(100%) sepia(35%) saturate(200%) hue-rotate(185deg) brightness(1.15);
+}

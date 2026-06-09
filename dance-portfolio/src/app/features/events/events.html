@@ -1,37 +1,34 @@
 <section class="py-20 px-6 max-w-6xl mx-auto">
   <div class="text-center mb-12">
-    <h2 class="text-5xl font-bold mb-4">Próximos Eventos</h2>
+    <h2 class="text-5xl font-bold mb-4">Portfólio</h2>
     <div class="w-24 h-1 bg-gradient-to-r from-orange-red to-electric-violet mx-auto"></div>
+    <p class="mt-4 text-gray-600 max-w-3xl mx-auto">
+      Eventos, competições e experiências que mostram nossa evolução e impacto
+      no cenário K-pop do Rio Grande do Sul e do país.
+    </p>
   </div>
 
   <div class="space-y-6">
     <div
       *ngFor="let event of events"
-      [ngClass]="event.type === 'workshop'
+      [ngClass]="event.type === 'experience'
         ? 'border-l-4 border-electric-violet bg-violet-50'
         : 'border-l-4 border-orange-red bg-orange-50'"
-      class="p-6 rounded-lg transition hover:shadow-lg"
+      class="p-6 rounded-3xl transition hover:shadow-xl shadow-sm"
     >
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
         <div class="flex-1">
-          <div
-            class="inline-block px-3 py-1 rounded-full text-sm font-semibold mb-2"
-            [ngClass]="event.type === 'workshop'
-              ? 'bg-electric-violet text-white'
-              : 'bg-orange-red text-white'"
-          >
-            {{ event.type === 'workshop' ? '📚 Workshop' : '🎭 Evento' }}
+          <div class="inline-flex items-center gap-3 mb-4">
+            <span class="text-3xl">{{ event.type === 'experience' ? '🌎' : '🏆' }}</span>
+            <span class="font-semibold uppercase tracking-[0.2em] text-sm text-gray-600">
+              {{ event.type === 'experience' ? 'Experiência de destaque' : 'Evento' }}
+            </span>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ event.title }}</h3>
           <p class="text-gray-600 mb-1">📅 {{ event.date }}</p>
-          <p class="text-gray-600 mb-2">📍 {{ event.location }}</p>
+          <p class="text-gray-600 mb-4">📍 {{ event.location }}</p>
           <p class="text-gray-700">{{ event.description }}</p>
         </div>
-        <button
-          class="mt-4 md:mt-0 md:ml-6 px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition whitespace-nowrap"
-        >
-          Saiba Mais
-        </button>
       </div>
     </div>
   </div>

@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "predeploy": "npm run build",
+    "deploy": "npx angular-cli-ghpages --dir=dist/dance-portfolio",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "lint": "ng lint",

@@ -1,10 +1,11 @@
-<nav class="bg-gray-900 text-white shadow-lg sticky top-0 z-40">
+<nav class="navbar sticky top-0 z-50">
   <div class="max-w-6xl mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <h1 class="text-2xl font-bold bg-gradient-to-r from-orange-red to-electric-violet bg-clip-text text-transparent">
-        Grupo Dança
-      </h1>
+      <a href="#home" class="flex items-center gap-3">
+        <img src="assets/logos/logo.png" alt="NEXA logo" class="logo-light h-10 w-auto" />
+        <span class="text-2xl font-bold tracking-widest text-white">NEXA</span>
+      </a>
 
       <!-- Menu Desktop -->
       <ul class="hidden md:flex space-x-8">
@@ -15,13 +16,16 @@
           <a href="#about" class="hover:text-orange-red transition">Sobre</a>
         </li>
         <li>
-          <a href="#members" class="hover:text-orange-red transition">Integrantes</a>
+          <a href="#conquistas" class="hover:text-orange-red transition">Conquistas</a>
+        </li>
+        <li>
+          <a href="#portfolio" class="hover:text-orange-red transition">Portfólio</a>
         </li>
         <li>
           <a href="#gallery" class="hover:text-orange-red transition">Galeria</a>
         </li>
         <li>
-          <a href="#events" class="hover:text-orange-red transition">Agenda</a>
+          <a href="#parcerias" class="hover:text-orange-red transition">Parcerias</a>
         </li>
         <li>
           <a href="#contact" class="hover:text-orange-red transition">Contato</a>
@@ -47,13 +51,16 @@
         <a href="#about" (click)="isOpen.set(false)" class="block hover:text-orange-red transition">Sobre</a>
       </li>
       <li>
-        <a href="#members" (click)="isOpen.set(false)" class="block hover:text-orange-red transition">Integrantes</a>
+        <a href="#conquistas" (click)="isOpen.set(false)" class="block hover:text-orange-red transition">Conquistas</a>
+      </li>
+      <li>
+        <a href="#portfolio" (click)="isOpen.set(false)" class="block hover:text-orange-red transition">Portfólio</a>
       </li>
       <li>
         <a href="#gallery" (click)="isOpen.set(false)" class="block hover:text-orange-red transition">Galeria</a>
       </li>
       <li>
-        <a href="#events" (click)="isOpen.set(false)" class="block hover:text-orange-red transition">Agenda</a>
+        <a href="#parcerias" (click)="isOpen.set(false)" class="block hover:text-orange-red transition">Parcerias</a>
       </li>
       <li>
         <a href="#contact" (click)="isOpen.set(false)" class="block hover:text-orange-red transition">Contato</a>

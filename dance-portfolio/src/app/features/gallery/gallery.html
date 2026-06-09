@@ -9,7 +9,7 @@
     <div
       *ngFor="let item of items"
       (click)="openImage(item.image)"
-      class="relative overflow-hidden rounded-lg cursor-pointer group h-64 bg-gray-300"
+      class="relative overflow-hidden rounded-3xl cursor-pointer group h-64 surface-card"
     >
       <img
         [src]="item.image"
@@ -17,7 +17,7 @@
         class="w-full h-full object-cover group-hover:scale-110 transition duration-300"
       />
       <div
-        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center"
+        class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center"
       >
         <p class="text-white text-lg font-semibold">{{ item.title }}</p>
         <p class="text-white text-sm capitalize mt-2">{{ item.category }}</p>

@@ -1,0 +1,27 @@
+<section class="py-20 px-6 max-w-6xl mx-auto">
+  <div class="text-center mb-12">
+    <h2 class="text-5xl font-bold mb-4">Nossos Integrantes</h2>
+    <div class="w-24 h-1 bg-gradient-to-r from-orange-red to-electric-violet mx-auto"></div>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    <div *ngFor="let member of members" class="text-center group">
+      <!-- Card com foto -->
+      <div class="relative overflow-hidden rounded-lg mb-4 h-80 bg-gray-300">
+        <img
+          [src]="member.image"
+          [alt]="member.name"
+          class="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+        />
+        <div
+          class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-end justify-center pb-4"
+        >
+          <p class="text-white text-lg font-semibold">{{ member.role }}</p>
+        </div>
+      </div>
+      <!-- Informações -->
+      <h3 class="text-xl font-bold text-gray-900">{{ member.name }}</h3>
+      <p class="text-orange-red font-semibold">{{ member.role }}</p>
+    </div>
+  </div>
+</section>

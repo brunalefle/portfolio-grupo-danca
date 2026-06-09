@@ -1,0 +1,28 @@
+<section class="relative w-full h-screen overflow-hidden">
+  <!-- Vídeo de fundo -->
+  <video
+    autoplay
+    muted
+    loop
+    class="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="assets/videos/intro.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Overlay escuro -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <!-- Conteúdo -->
+  <div class="relative z-10 flex items-center justify-center h-full">
+    <div class="text-center text-white">
+      <h1 class="text-6xl font-bold mb-6">Grupo de Dança</h1>
+      <p class="text-2xl mb-8 font-light">Movimento, Paixão e Arte</p>
+      <p-button
+        label="Conheça o Grupo"
+        severity="secondary"
+        size="large"
+        class="p-button-rounded"
+      ></p-button>
+    </div>
+  </div>
+</section>

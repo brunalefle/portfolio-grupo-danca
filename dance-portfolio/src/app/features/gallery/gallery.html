@@ -1,0 +1,44 @@
+<section class="py-20 px-6 max-w-6xl mx-auto">
+  <div class="text-center mb-12">
+    <h2 class="text-5xl font-bold mb-4">Galeria</h2>
+    <div class="w-24 h-1 bg-gradient-to-r from-orange-red to-electric-violet mx-auto"></div>
+  </div>
+
+  <!-- Grid Responsivo -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div
+      *ngFor="let item of items"
+      (click)="openImage(item.image)"
+      class="relative overflow-hidden rounded-lg cursor-pointer group h-64 bg-gray-300"
+    >
+      <img
+        [src]="item.image"
+        [alt]="item.title"
+        class="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+      />
+      <div
+        class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center"
+      >
+        <p class="text-white text-lg font-semibold">{{ item.title }}</p>
+        <p class="text-white text-sm capitalize mt-2">{{ item.category }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div
+    *ngIf="selectedImage"
+    (click)="closeImage()"
+    class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+  >
+    <div (click)="$event.stopPropagation()" class="relative max-w-4xl max-h-[90vh]">
+      <img [src]="selectedImage" class="max-w-full max-h-[90vh] object-contain" />
+      <button
+        (click)="closeImage()"
+        class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-gray-300"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+</section>

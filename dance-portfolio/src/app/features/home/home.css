@@ -1,0 +1,47 @@
+.home-hero-content {
+  padding-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .home-hero-content {
+    padding-top: 3.5rem;
+  }
+}
+
+.hero-chip {
+  letter-spacing: 0.4em;
+  margin-bottom: 1.5rem;
+}
+
+.home-hero-cards {
+  margin-top: 3.5rem;
+}
+
+.home-card {
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.9));
+  padding: 1.75rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  border-color: rgba(56, 189, 248, 0.18);
+}
+
+.home-card-icon {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.home-card-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  color: #f8fafc;
+}
+
+.home-card p {
+  color: #cbd5e1;
+  line-height: 1.75;
+}

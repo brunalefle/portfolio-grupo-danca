@@ -1,11 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface GalleryItem {
-  image: string;
-  title: string;
-  category: string;
-}
+import { GALLERY_ITEMS, GalleryItem } from './gallery-data';
 
 @Component({
   selector: 'app-gallery',
@@ -14,24 +9,114 @@ interface GalleryItem {
   styleUrl: './gallery.css',
 })
 export class Gallery {
-  selectedImage: string | null = null;
+  allItems: GalleryItem[] = GALLERY_ITEMS;
 
-  items: GalleryItem[] = [
-    { image: 'assets/images/cover1.jpg', title: 'Cover Evento', category: 'covers' },
-    { image: 'assets/images/comp1.jpg', title: 'Competição 2024', category: 'competicoes' },
-    { image: 'assets/images/show1.jpg', title: 'Apresentação Solo', category: 'apresentacoes' },
-    { image: 'assets/images/cover2.jpg', title: 'Cover Festa', category: 'covers' },
-    { image: 'assets/images/comp2.jpg', title: 'Competição 2023', category: 'competicoes' },
-    { image: 'assets/images/show2.jpg', title: 'Apresentação Grupo', category: 'apresentacoes' },
-    { image: 'assets/images/cover3.jpg', title: 'Cover Casamento', category: 'covers' },
-    { image: 'assets/images/comp3.jpg', title: 'Campeonato', category: 'competicoes' },
+  categories: string[] = [
+    'Animebuzz 2026',
+    'Animebuzz 2025',
+    'Animebuzz FJRS 2025',
+    'Animexpo 2025',
+    'Animextreme 2025',
+    'Premiação DREAMFEST 2025',
   ];
 
-  openImage(image: string): void {
-    this.selectedImage = image;
+  activeCategory: string = 'Animebuzz 2026';
+  activeSubCategory: string = 'todos';
+  visibleCount: number = 12;
+  selectedImageIndex: number | null = null;
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    if (this.selectedImageIndex !== null) {
+      if (event.key === 'ArrowRight') {
+        this.nextImage();
+      } else if (event.key === 'ArrowLeft') {
+        this.prevImage();
+      } else if (event.key === 'Escape') {
+        this.closeLightbox();
+      }
+    }
   }
 
-  closeImage(): void {
-    this.selectedImage = null;
+  get currentSubCategories(): string[] {
+    const subs = new Set<string>();
+    this.allItems.forEach((item) => {
+      if (item.category === this.activeCategory && item.subCategory) {
+        subs.add(item.subCategory);
+      }
+    });
+    return Array.from(subs);
+  }
+
+  get filteredItems(): GalleryItem[] {
+    return this.allItems.filter((item) => {
+      const matchCategory = item.category === this.activeCategory;
+      const matchSubCategory =
+        this.activeSubCategory === 'todos' ||
+        item.subCategory === this.activeSubCategory;
+      return matchCategory && matchSubCategory;
+    });
+  }
+
+  get visibleItems(): GalleryItem[] {
+    return this.filteredItems.slice(0, this.visibleCount);
+  }
+
+  get selectedImage(): GalleryItem | null {
+    if (
+      this.selectedImageIndex !== null &&
+      this.selectedImageIndex >= 0 &&
+      this.selectedImageIndex < this.filteredItems.length
+    ) {
+      return this.filteredItems[this.selectedImageIndex];
+    }
+    return null;
+  }
+
+  setCategory(cat: string): void {
+    this.activeCategory = cat;
+    this.activeSubCategory = 'todos';
+    this.visibleCount = 12;
+    this.closeLightbox();
+  }
+
+  setSubCategory(subCat: string): void {
+    this.activeSubCategory = subCat;
+    this.visibleCount = 12;
+    this.closeLightbox();
+  }
+
+  loadMore(): void {
+    this.visibleCount += 12;
+  }
+
+  openLightbox(index: number): void {
+    this.selectedImageIndex = index;
+  }
+
+  closeLightbox(): void {
+    this.selectedImageIndex = null;
+  }
+
+  nextImage(event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
+    if (this.selectedImageIndex !== null) {
+      this.selectedImageIndex =
+        (this.selectedImageIndex + 1) % this.filteredItems.length;
+    }
+  }
+
+  prevImage(event?: Event): void {
+    if (event) {
+      event.stopPropagation();
+    }
+    if (this.selectedImageIndex !== null) {
+      this.selectedImageIndex =
+        (this.selectedImageIndex - 1 + this.filteredItems.length) %
+        this.filteredItems.length;
+    }
   }
 }
+

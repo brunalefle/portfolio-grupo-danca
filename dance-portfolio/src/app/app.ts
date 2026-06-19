@@ -9,7 +9,6 @@ import { Events } from './features/events/events';
 import { Achievements } from './features/achievements/achievements';
 import { Partnerships } from './features/partnerships/partnerships';
 import { Contact } from './features/contact/contact';
-import { PartnerKit } from './features/partner-kit/partner-kit';
 
 @Component({
   selector: 'app-root',

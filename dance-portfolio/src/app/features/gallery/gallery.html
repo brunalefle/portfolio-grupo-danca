@@ -1,44 +1,112 @@
-<section class="py-20 px-6 max-w-6xl mx-auto">
+<section class="py-20 px-6 max-w-7xl mx-auto">
   <div class="text-center mb-12">
     <h2 class="text-5xl font-bold mb-4">Galeria</h2>
     <div class="w-24 h-1 bg-gradient-to-r from-orange-red to-electric-violet mx-auto"></div>
   </div>
 
-  <!-- Grid Responsivo -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-    <div
-      *ngFor="let item of items"
-      (click)="openImage(item.image)"
-      class="relative overflow-hidden rounded-3xl cursor-pointer group h-64 surface-card"
+  <!-- Filtros Principais (Eventos) -->
+  <div class="flex flex-wrap justify-center gap-3 mb-6">
+    <button
+      *ngFor="let cat of categories"
+      (click)="setCategory(cat)"
+      [class]="activeCategory === cat ? 'filter-btn active' : 'filter-btn'"
     >
-      <img
-        [src]="item.image"
-        [alt]="item.title"
-        class="w-full h-full object-cover group-hover:scale-110 transition duration-300"
-      />
-      <div
-        class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center"
-      >
-        <p class="text-white text-lg font-semibold">{{ item.title }}</p>
-        <p class="text-white text-sm capitalize mt-2">{{ item.category }}</p>
+      {{ cat }}
+    </button>
+  </div>
+
+  <!-- Filtros Secundários (Subcategorias/Shows) -->
+  <div *ngIf="currentSubCategories.length > 0" class="flex flex-wrap justify-center gap-2 mb-10 animate-fade-in">
+    <button
+      (click)="setSubCategory('todos')"
+      [class]="activeSubCategory === 'todos' ? 'sub-filter-btn active' : 'sub-filter-btn'"
+    >
+      Todos os Shows
+    </button>
+    <button
+      *ngFor="let sub of currentSubCategories"
+      (click)="setSubCategory(sub)"
+      [class]="activeSubCategory === sub ? 'sub-filter-btn active' : 'sub-filter-btn'"
+    >
+      {{ sub }}
+    </button>
+  </div>
+
+  <!-- Grid Responsivo -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div
+      *ngFor="let item of visibleItems; let i = index"
+      (click)="openLightbox(i)"
+      class="gallery-card group surface-card"
+    >
+      <div class="gallery-image-wrapper">
+        <img
+          [src]="item.image"
+          [alt]="item.title"
+          loading="lazy"
+          class="gallery-image"
+        />
+      </div>
+      <div class="gallery-overlay">
+        <div class="gallery-overlay-content">
+          <span class="gallery-category-tag" *ngIf="item.subCategory">{{ item.subCategory }}</span>
+          <span class="gallery-category-tag" *ngIf="!item.subCategory">{{ item.category }}</span>
+        </div>
       </div>
     </div>
+  </div>
+
+  <!-- Paginação / Carregar Mais -->
+  <div *ngIf="filteredItems.length > visibleCount" class="text-center mt-12">
+    <button (click)="loadMore()" class="load-more-btn">
+      Carregar Mais ({{ filteredItems.length - visibleCount }} restantes)
+    </button>
   </div>
 
   <!-- Lightbox -->
   <div
     *ngIf="selectedImage"
-    (click)="closeImage()"
-    class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+    (click)="closeLightbox()"
+    class="lightbox-overlay"
   >
-    <div (click)="$event.stopPropagation()" class="relative max-w-4xl max-h-[90vh]">
-      <img [src]="selectedImage" class="max-w-full max-h-[90vh] object-contain" />
-      <button
-        (click)="closeImage()"
-        class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-gray-300"
-      >
-        ✕
-      </button>
+    <!-- Botão Fechar -->
+    <button
+      (click)="closeLightbox()"
+      class="lightbox-close-btn"
+      aria-label="Fechar galeria"
+    >
+      ✕
+    </button>
+
+    <!-- Botão Anterior -->
+    <button
+      (click)="prevImage($event)"
+      class="lightbox-nav-btn prev"
+      aria-label="Imagem anterior"
+    >
+      ‹
+    </button>
+
+    <!-- Conteúdo Principal -->
+    <div (click)="$event.stopPropagation()" class="lightbox-content">
+      <img [src]="selectedImage.image" [alt]="selectedImage.title" class="lightbox-image" />
+      
+      <div class="lightbox-info">
+        <p class="lightbox-title">{{ selectedImage.subCategory || selectedImage.category }}</p>
+        <p class="lightbox-counter">
+          Imagem {{ selectedImageIndex! + 1 }} de {{ filteredItems.length }}
+        </p>
+      </div>
     </div>
+
+    <!-- Botão Próximo -->
+    <button
+      (click)="nextImage($event)"
+      class="lightbox-nav-btn next"
+      aria-label="Próxima imagem"
+    >
+      ›
+    </button>
   </div>
 </section>
+

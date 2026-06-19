@@ -1,52 +1,59 @@
-<section class="py-20 px-6 max-w-6xl mx-auto">
-  <div class="text-center mb-12">
+<section class="py-20 px-6 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
     <h2 class="text-5xl font-bold mb-4">Parcerias</h2>
     <div class="w-24 h-1 bg-gradient-to-r from-orange-red to-electric-violet mx-auto"></div>
-    <p class="mt-4 text-gray-600 max-w-3xl mx-auto">
-      Estamos em busca de parceiros que desejem crescer junto conosco,
-      acompanhando nossa trajetória em competições e apresentações por todo o país.
+    <p class="mt-6 text-slate-300 max-w-2xl mx-auto leading-relaxed text-lg">
+      Buscamos construir colaborações estratégicas com marcas que desejam se conectar de forma orgânica e profunda com a comunidade de cultura pop e dança.
     </p>
   </div>
 
-  <div class="grid lg:grid-cols-2 gap-10">
-    <div class="space-y-6">
-      <div class="bg-white p-8 rounded-3xl shadow-lg">
-        <h3 class="text-3xl font-bold mb-4 text-orange-red">Por que apoiar o grupo?</h3>
-        <ul class="space-y-3 text-gray-700">
-          <li>✅ Referência em K-pop no RS: traduzimos o sentimento dos shows internacionais.</li>
-          <li>✅ Experiência do ídolo como produto: entretenimento imersivo de alta conversão.</li>
-          <li>✅ Conexão emocional profunda com uma fã-base apaixonada e fiel.</li>
-          <li>✅ Visibilidade digital qualificada e impacto real em eventos e competições.</li>
-        </ul>
-      </div>
-
-      <div class="bg-white p-8 rounded-3xl shadow-lg">
-        <h3 class="text-3xl font-bold mb-4 text-electric-violet">O que oferecemos</h3>
-        <div class="space-y-3 text-gray-700">
-          <p>📱 Conexão direta com um público que apoia financeiramente marcas parceiras.</p>
-          <p>🎤 Presença ativa em eventos de grande impacto e alta imersão.</p>
-          <p>🏆 Associação da sua marca à experiência idêntica de palco de nível global.</p>
-          <p>👥 Engajamento orgânico de uma fã-base apaixonada.</p>
-          <p>📸 Produção constante de conteúdo visual de altíssima qualidade.</p>
-          <p>🌎 Participação em competições nacionais e eventos especiais.</p>
+  <div class="grid lg:grid-cols-[1.3fr_0.7fr] gap-8">
+    <!-- Grade de Benefícios -->
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div
+        *ngFor="let benefit of benefits"
+        class="partner-benefit-card surface-card p-8 rounded-3xl"
+      >
+        <div class="benefit-icon-container mb-5">
+          <i [class]="benefit.icon"></i>
         </div>
+        <h3 class="text-xl font-bold mb-3 text-white">{{ benefit.title }}</h3>
+        <p class="text-slate-300 leading-relaxed text-sm">
+          {{ benefit.description }}
+        </p>
       </div>
     </div>
 
-    <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-10 rounded-3xl shadow-xl flex flex-col justify-between">
-      <div>
-        <h3 class="text-3xl font-bold mb-4">Conecte sua Marca</h3>
-        <p class="text-gray-200 leading-relaxed mb-6">
-          Oferecemos mais do que um cover: entregamos a experiência idêntica de um show internacional, gerando uma conexão emocional profunda com uma fã-base apaixonada. Para sua equipe de marketing, ter o engajamento e o apoio financeiro desse público qualificado é música para os ouvidos. Queremos construir parcerias que gerem valor real e duradouro.
+    <!-- Card Lateral CTA -->
+    <div class="partner-cta-card surface-card p-10 rounded-3xl flex flex-col justify-between">
+      <div class="space-y-6">
+        <span class="partner-tag">Colaboração & Patrocínio</span>
+        <h3 class="text-3xl font-extrabold text-white leading-tight">Conecte sua Marca ao Nosso Universo</h3>
+        <p class="text-slate-300 leading-relaxed text-sm">
+          Oferecemos muito mais do que apresentações de dança. Entregamos a experiência do ídolo como um produto de entretenimento imersivo de altíssimo impacto visual e engajamento orgânico.
+        </p>
+        <p class="text-slate-300 leading-relaxed text-sm">
+          Para sua marca, ter o apoio e a conversão de consumo de uma fã-base apaixonada é a oportunidade ideal de posicionamento.
         </p>
       </div>
 
-      <a
-        href="#contact"
-        class="inline-flex items-center justify-center w-full bg-orange-red hover:bg-orange-600 text-white font-bold py-4 rounded-3xl transition"
-      >
-        Solicitar mídia kit
-      </a>
+      <div class="mt-8 space-y-4">
+        <a
+          href="#contact"
+          class="partner-primary-btn w-full"
+        >
+          Entrar em Contato por E-mail <i class="fas fa-envelope ml-2 text-xs"></i>
+        </a>
+        <a
+          href="https://wa.me/5551999538381"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="partner-secondary-btn whatsapp-btn w-full"
+        >
+          <i class="fab fa-whatsapp mr-2 text-lg"></i> Falar no WhatsApp
+        </a>
+      </div>
     </div>
   </div>
 </section>
+

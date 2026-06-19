@@ -1,12 +1,32 @@
+/* src/app/shared/components/footer/footer.css */
+
 footer {
-  background: rgba(8, 15, 32, 0.98);
-  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(4, 8, 16, 0.95);
+  border-top: 1px solid rgba(148, 163, 184, 0.08);
+  backdrop-filter: blur(12px);
 }
 
-footer a {
-  color: #a78bfa;
+.footer-link {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-footer a:hover {
-  color: #fda4af;
+.footer-link:hover {
+  color: var(--color-primary-light);
+  transform: translateX(2px);
+}
+
+.footer-social-icon {
+  color: #94a3b8;
+  font-size: 1.35rem;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social-icon:hover {
+  color: var(--color-primary-light);
+  transform: translateY(-2px);
 }

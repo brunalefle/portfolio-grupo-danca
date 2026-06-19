@@ -1,0 +1,176 @@
+/* src/app/features/contact/contact.css */
+
+/* Cards de Redes Sociais */
+.social-link-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.social-link-card:hover {
+  transform: translateX(4px);
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(96, 165, 250, 0.22);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Caixa de Ícones com Estilização Individual por Rede */
+.social-icon-box {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icon-box i {
+  font-size: 1.35rem;
+  transition: all 0.35s ease;
+}
+
+/* Instagram Styles */
+.social-icon-box.instagram {
+  background: rgba(225, 48, 108, 0.08);
+  border: 1px solid rgba(225, 48, 108, 0.18);
+  color: #e1306c;
+}
+
+.social-link-card:hover .social-icon-box.instagram {
+  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(238, 42, 123, 0.25);
+  transform: scale(1.05) rotate(-3deg);
+}
+
+/* TikTok Styles */
+.social-icon-box.tiktok {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.social-link-card:hover .social-icon-box.tiktok {
+  background: linear-gradient(135deg, #00f2fe, #fe0979);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(0, 242, 254, 0.2);
+  transform: scale(1.05) rotate(3deg);
+}
+
+/* YouTube Styles */
+.social-icon-box.youtube {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  color: #ef4444;
+}
+
+.social-link-card:hover .social-icon-box.youtube {
+  background: #ff0000;
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.25);
+  transform: scale(1.05) rotate(-3deg);
+}
+
+/* E-mail Styles */
+.social-icon-box.email {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  color: #38bdf8;
+}
+
+.social-link-card:hover .social-icon-box.email {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: #020617;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+  transform: scale(1.05) rotate(3deg);
+}
+
+/* Input Styles Focus */
+.form-input {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(15, 23, 42, 0.6);
+  color: #e2e8f0;
+}
+
+.form-input:focus {
+  border-color: var(--color-primary-light);
+  background: rgba(15, 23, 42, 0.85);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.08);
+}
+
+.form-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Botão de Envio */
+.submit-btn {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  color: #020617;
+  border: none;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35);
+  opacity: 0.95;
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: rgba(148, 163, 184, 0.2);
+  color: #94a3b8;
+  box-shadow: none;
+}
+
+/* Caixa de Alertas */
+.feedback-alert {
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.feedback-alert.success {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.feedback-alert.error {
+  background: rgba(244, 63, 94, 0.08);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  color: #f43f5e;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

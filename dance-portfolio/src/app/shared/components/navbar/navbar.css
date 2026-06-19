@@ -77,7 +77,7 @@
 
 /* Custom CSS Animated Hamburger Button */
 .mobile-menu-btn {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   width: 22px;
@@ -87,6 +87,12 @@
   cursor: pointer;
   padding: 0;
   z-index: 100;
+}
+
+@media (max-width: 767.98px) {
+  .mobile-menu-btn {
+    display: flex;
+  }
 }
 
 .mobile-menu-btn:focus {
@@ -129,6 +135,12 @@
   opacity: 0;
   visibility: hidden;
   transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none !important;
+  }
 }
 
 .mobile-menu.open {

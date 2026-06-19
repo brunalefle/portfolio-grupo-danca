@@ -1,120 +1,161 @@
-<section class="py-20 px-6 max-w-6xl mx-auto">
-  <div class="text-center mb-12">
+<section class="py-20 px-6 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
     <h2 class="text-5xl font-bold mb-4">Fale Conosco</h2>
     <div class="w-24 h-1 bg-gradient-to-r from-orange-red to-electric-violet mx-auto"></div>
   </div>
 
   <div class="grid md:grid-cols-2 gap-12">
     <!-- Redes Sociais -->
-<div class="surface-card p-8 rounded-3xl">
-        <h3 class="text-2xl font-bold mb-6">Nos Encontre</h3>
+    <div class="surface-card p-8 rounded-3xl flex flex-col justify-between">
+      <div>
+        <h3 class="text-2xl font-bold mb-8 text-white">Canais Oficiais</h3>
         <div class="space-y-4">
           <a
             href="https://instagram.com/nexadt"
             target="_blank"
-            class="flex items-center space-x-4 p-4 bg-slate-950/90 border border-white/10 rounded-3xl shadow-xl hover:bg-slate-900 transition"
+            rel="noopener noreferrer"
+            class="social-link-card flex items-center space-x-4 p-4 rounded-3xl"
           >
-            <span class="text-4xl">📸</span>
+            <div class="social-icon-box instagram">
+              <i class="fab fa-instagram"></i>
+            </div>
             <div>
-              <p class="font-semibold">Instagram</p>
-              <p class="text-slate-400">@nexadt</p>
+              <p class="font-semibold text-white">Instagram</p>
+              <p class="text-slate-400 text-sm">@nexadt</p>
             </div>
           </a>
 
           <a
             href="https://tiktok.com/@nexadt"
             target="_blank"
-            class="flex items-center space-x-4 p-4 bg-slate-950/90 border border-white/10 rounded-3xl shadow-xl hover:bg-slate-900 transition"
+            rel="noopener noreferrer"
+            class="social-link-card flex items-center space-x-4 p-4 rounded-3xl"
           >
-            <span class="text-4xl">🎵</span>
+            <div class="social-icon-box tiktok">
+              <i class="fab fa-tiktok"></i>
+            </div>
             <div>
-              <p class="font-semibold">TikTok</p>
-              <p class="text-slate-400">@nexadt</p>
+              <p class="font-semibold text-white">TikTok</p>
+              <p class="text-slate-400 text-sm">@nexadt</p>
             </div>
           </a>
 
           <a
             href="https://www.youtube.com/@nexadanceteam"
             target="_blank"
-            class="flex items-center space-x-4 p-4 bg-slate-950/90 border border-white/10 rounded-3xl shadow-xl hover:bg-slate-900 transition"
+            rel="noopener noreferrer"
+            class="social-link-card flex items-center space-x-4 p-4 rounded-3xl"
           >
-            <span class="text-4xl">🎥</span>
+            <div class="social-icon-box youtube">
+              <i class="fab fa-youtube"></i>
+            </div>
             <div>
-              <p class="font-semibold">YouTube</p>
-              <p class="text-slate-400">@nexadanceteam</p>
+              <p class="font-semibold text-white">YouTube</p>
+              <p class="text-slate-400 text-sm">@nexadanceteam</p>
             </div>
           </a>
 
           <a
             href="mailto:nexadanceteam@gmail.com"
-            class="flex items-center space-x-4 p-4 bg-slate-950/90 border border-white/10 rounded-3xl shadow-xl hover:bg-slate-900 transition"
+            class="social-link-card flex items-center space-x-4 p-4 rounded-3xl"
           >
-            <span class="text-4xl">📧</span>
+            <div class="social-icon-box email">
+              <i class="far fa-envelope"></i>
+            </div>
             <div>
-              <p class="font-semibold">E-mail</p>
-              <p class="text-slate-400">nexadanceteam@gmail.com</p>
-          </div>
-        </a>
+              <p class="font-semibold text-white">E-mail</p>
+              <p class="text-slate-400 text-sm">nexadanceteam@gmail.com</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-6 border-t border-slate-800/40 text-center md:text-left">
+        <p class="text-slate-400 text-sm">
+          Fique por dentro das nossas atualizações diárias de ensaios e bastidores seguindo nossas redes!
+        </p>
       </div>
     </div>
 
     <!-- Formulário -->
-    <div>
-      <h3 class="text-2xl font-bold mb-6">Envie uma Mensagem</h3>
-      <form (ngSubmit)="onSubmit()" class="space-y-4">
+    <div class="surface-card p-8 rounded-3xl">
+      <h3 class="text-2xl font-bold mb-8 text-white">Envie uma Mensagem</h3>
+      
+      <!-- Status Feedback -->
+      <div *ngIf="submitStatus === 'success'" class="feedback-alert success animate-fade-in mb-6">
+        <i class="fas fa-check-circle mr-2"></i> Mensagem enviada com sucesso! Logo entraremos em contato.
+      </div>
+      <div *ngIf="submitStatus === 'error'" class="feedback-alert error animate-fade-in mb-6">
+        <i class="fas fa-exclamation-circle mr-2"></i> Erro ao enviar. Por favor, tente novamente ou fale pelas redes sociais.
+      </div>
+      <div *ngIf="submitStatus === 'validation-error'" class="feedback-alert error animate-fade-in mb-6">
+        <i class="fas fa-exclamation-circle mr-2"></i> {{ validationMessage }}
+      </div>
+
+      <form (ngSubmit)="onSubmit()" class="space-y-6">
         <div>
-          <label class="block text-gray-700 font-semibold mb-2">Nome</label>
+          <label class="block text-slate-300 font-semibold mb-2">Nome</label>
           <input
             [(ngModel)]="form.name"
             name="name"
             type="text"
             required
-            class="w-full px-4 py-3 rounded-3xl focus:outline-none focus:ring-2 focus:ring-sky-400 form-input"
-            placeholder="Seu nome"
+            [disabled]="submitStatus === 'sending'"
+            class="w-full px-5 py-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-400/30 form-input transition"
+            placeholder="Seu nome completo"
           />
         </div>
 
         <div>
-          <label class="block text-gray-700 font-semibold mb-2">E-mail</label>
+          <label class="block text-slate-300 font-semibold mb-2">E-mail</label>
           <input
             [(ngModel)]="form.email"
             name="email"
             type="email"
             required
-            class="w-full px-4 py-3 rounded-3xl focus:outline-none focus:ring-2 focus:ring-sky-400 form-input"
+            [disabled]="submitStatus === 'sending'"
+            class="w-full px-5 py-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-400/30 form-input transition"
             placeholder="seu@email.com"
           />
         </div>
 
         <div>
-          <label class="block text-gray-700 font-semibold mb-2">Assunto</label>
+          <label class="block text-slate-300 font-semibold mb-2">Assunto</label>
           <input
             [(ngModel)]="form.subject"
             name="subject"
             type="text"
             required
-            class="w-full px-4 py-3 rounded-3xl focus:outline-none focus:ring-2 focus:ring-sky-400 form-input"
-            placeholder="Assunto da mensagem"
+            [disabled]="submitStatus === 'sending'"
+            class="w-full px-5 py-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-400/30 form-input transition"
+            placeholder="Assunto do contato"
           />
         </div>
 
         <div>
-          <label class="block text-gray-700 font-semibold mb-2">Mensagem</label>
+          <label class="block text-slate-300 font-semibold mb-2">Mensagem</label>
           <textarea
             [(ngModel)]="form.message"
             name="message"
             required
-            rows="5"
-            class="w-full px-4 py-3 rounded-3xl focus:outline-none focus:ring-2 focus:ring-sky-400 form-input resize-none"
-            placeholder="Sua mensagem aqui..."
+            [disabled]="submitStatus === 'sending'"
+            rows="4"
+            class="w-full px-5 py-3.5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-400/30 form-input resize-none transition"
+            placeholder="Sua mensagem..."
           ></textarea>
         </div>
 
         <button
           type="submit"
-          class="w-full bg-gradient-to-r from-orange-red to-vivid-pink text-white font-bold py-3 rounded-lg hover:shadow-lg transition"
+          [disabled]="submitStatus === 'sending'"
+          class="submit-btn w-full flex items-center justify-center font-bold py-4 rounded-2xl transition"
         >
-          Enviar Mensagem
+          <span *ngIf="submitStatus !== 'sending'">
+            Enviar Mensagem <i class="fas fa-paper-plane ml-2 text-xs"></i>
+          </span>
+          <span *ngIf="submitStatus === 'sending'">
+            Enviando... <i class="fas fa-spinner fa-spin ml-2"></i>
+          </span>
         </button>
       </form>
     </div>
